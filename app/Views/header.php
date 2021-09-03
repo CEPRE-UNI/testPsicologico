@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <title>CEPRE-UNI | Test</title>
   <!-- Favicon -->
   <link rel="icon" href="<?php echo base_url(); ?>/public/assets/img/brand/favicon.ico" type="image/png">
   <!-- Fonts -->

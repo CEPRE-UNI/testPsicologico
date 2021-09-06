@@ -3,17 +3,21 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\AlumnosModel;
+use App\Models\TestPreguntasModel;
+use App\Models\AreasModel;
+use App\Models\TiposModel;
 
 class Qhatuni extends BaseController
 {
 
-	protected $alumnos, $reglasLogin,$session;
+	protected $alumnos, $reglasLogin,$session,$testPreguntas,$areas;
 
 	public function __construct()
 	{
-		$this->alumnos = new AlumnosModel;
+		$this->testPreguntas = new TestPreguntasModel;
 		$this->session=session();
+		$this->areas=new AreasModel();
+		$this->tipos=new TiposModel();
 		helper(['form']);
 
 		$this->reglasLogin = [
@@ -62,8 +66,15 @@ class Qhatuni extends BaseController
 		if (!isset($this->session->dni)){
 			return redirect()->to(base_url());
 		}
+		$testPreguntas=$this->testPreguntas->findAll();
+		$areas=$this->areas->findAll();
+		$tipos=$this->tipos->findAll();
 		$data=[
-			'titulo'=>'cajas'
+			'titulo'=>'cajas',
+			'preguntas'=>$testPreguntas,
+			'tipos'=>$tipos,
+			'areas'=>$areas
+
 		];
 		echo view('header');
 		echo view('Qhatuni/test', $data);

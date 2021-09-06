@@ -40,69 +40,54 @@ $alumno_session = session();
                             <form role="form" method="post" action="<?php echo base_url() . '/alumnos/valida'; ?>">
                                 <!-- <h6 class="heading-small text-muted mb-4">User information</h6> -->
                                 <div class="pl-lg-4">
-                                    <table class="table table-sm table-borderless">
+                                <?php
+                                        foreach ($tipos as $tipo) {
+                                        ?>
+                                    <table class="table table-sm table-borderless table-responsive-sm">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Actividades</th>
+                                                <th scope="col"><?php echo $tipo['nombre'];?> </th>
                                                 <th scope="col">Respuesta</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Arreglar artefactos eléctricos</td>
-                                                <!-- <td>Reparar autos. </td>
-                                                <td>Arreglar artefactos mecánicos. </td>
-                                                <td>Construir con madera</td>
-                                                <td>Manejar un camión o tractor. </td>
-                                                <td>Usar herramientas. </td>
-                                                <td>Trabajar con motos</td>
-                                                <td>Llevar cursos de manualidades</td>
-                                                <td>Llevar cursos de dibujo mecánico. </td>
-                                                <td>Llevar cursos de carpintería o ebanistería</td>
-                                                <td>Llevar cursos de mecánica automotriz</td> -->
-                                                <td>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-                                                        <label class="custom-control-label" for="customRadioInline1">Si</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                                                        <label class="custom-control-label" for="customRadioInline2">No</label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>JaArreglar artefactos mecánicos.cob</td>
-                                                <td>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="dos1" name="dos" class="custom-control-input">
-                                                        <label class="custom-control-label" for="dos1">Si</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="dos2" name="dos" class="custom-control-input">
-                                                        <label class="custom-control-label" for="dos2">No</label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td >Manejar un camión o tractor</td>
-                                                <td>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="tres1" name="tres" class="custom-control-input">
-                                                        <label class="custom-control-label" for="tres1">Si</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="tres2" name="tres" class="custom-control-input">
-                                                        <label class="custom-control-label" for="tres2">No</label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                                        <?php
+                                        foreach ($areas as $area) {
+                                        ?>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"> Area <?php echo $area['nombre_corto'];?> </th>
+
+                                                </tr>
+                                            </tbody>
+                                            <tbody>
+                                                <?php $n = 1;
+                                                foreach ($preguntas as $pregunta) {
+                                                    if ($pregunta['id_area'] == $area['id'] && $pregunta['id_tipo'] == $tipo['id']) { ?>
+                                                        <tr>
+                                                            <th scope="row"><?php echo $n;
+                                                                            $n++ ?></th>
+                                                            <td><?php echo $pregunta['pregunta']; ?> </td>
+                                                            <td>
+                                                                <div class="custom-control custom-radio custom-control-inline">
+                                                                    <input type="radio" id="<?php echo $n.$area['id'].$tipo['id'];?>" name="<?php echo $pregunta['id'];?>" class="custom-control-input">
+                                                                    <label class="custom-control-label" for="<?php echo $n.$area['id'].$tipo['id'];?>">Si</label>
+                                                                </div>
+                                                                <div class="custom-control custom-radio custom-control-inline">
+                                                                    <input type="radio" id="<?php echo 10000+$n.$area['id'].$tipo['id'];?>" name="<?php echo $pregunta['id'];?>" class="custom-control-input">
+                                                                    <label class="custom-control-label" for="<?php echo 10000+$n.$area['id'].$tipo['id'];?>">No</label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                <?php }
+                                                }
+                                                ?>
+                                            </tbody>
+                                        <?php }
+                                        ?>
+
                                     </table>
+                                    <?php }  ?>
                                     <?php if (isset($validation)) { ?>
                                         <div class="alert alert-danger">
                                             <?php echo $validation->listErrors(); ?>

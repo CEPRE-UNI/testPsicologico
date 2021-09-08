@@ -63,9 +63,9 @@ class Qhatuni extends BaseController
 		];
 	}
 	public function index(){
-		// if (!isset($this->session->dni)){
-		// 	return redirect()->to(base_url());
-		// }
+		if (!isset($this->session->dni)){
+			return redirect()->to(base_url());
+		}
 		$testPreguntas=$this->testPreguntas->findAll();
 		$areas=$this->areas->findAll();
 		$tipos=$this->tipos->findAll();

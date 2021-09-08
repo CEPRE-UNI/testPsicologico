@@ -2,7 +2,7 @@
   <!-- Sidenav -->
   <!-- <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="javascript:void(0)">
-          <img src="<?php echo base_url(); ?>/public/<?php echo base_url(); ?>/public/assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+          <img src="<?php echo base_url(); ?>/<?php echo base_url(); ?>/assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
         </a>
       </div> -->
   <!-- Main content -->
@@ -11,7 +11,7 @@
 
     <!-- Header -->
     <!-- Header -->
-    <div class="header pb-6 d-flex  justify-content-center align-items-center" style="min-height: 500px; background-image: url(<?php echo base_url(); ?>/public/assets/img/theme/principal.jpg); background-size: cover; background-position: center;">
+    <div class="header pb-6 d-flex  justify-content-center align-items-center" style="min-height: 500px; background-image: url(<?php echo base_url(); ?>/assets/img/theme/principal.jpg); background-size: cover; background-position: center;">
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-10">
             <div class="logo ">
-              <a href="<?php echo base_url(); ?>"> <img src="<?php echo base_url(); ?>/public/assets/img/logo.png" alt="CEPRE-UNI"></a>
+              <a href="<?php echo base_url(); ?>"> <img src="<?php echo base_url(); ?>/assets/img/logo.png" alt="CEPRE-UNI"></a>
             </div>
           </div>
           <div class="col-lg-12 col-md-10">
@@ -35,12 +35,12 @@
       <div class="row">
         <!-- <div class="col-xl-4 order-xl-2">
           <div class="card card-profile">
-            <img src="../<?php echo base_url(); ?>/public/assets/img/theme/img-1-1000x600.jpg" alt="Image placeholder" class="card-img-top">
+            <img src="../<?php echo base_url(); ?>/assets/img/theme/img-1-1000x600.jpg" alt="Image placeholder" class="card-img-top">
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                    <img src="../<?php echo base_url(); ?>/public/assets/img/theme/team-4.jpg" class="rounded-circle">
+                    <img src="../<?php echo base_url(); ?>/assets/img/theme/team-4.jpg" class="rounded-circle">
                   </a>
                 </div>
               </div>

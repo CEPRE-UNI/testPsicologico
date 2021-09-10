@@ -2,15 +2,15 @@
 
 use CodeIgniter\Model;
 
-class TestPreguntasModel extends Model
+class DetalleTestModel extends Model
 {
-    protected $table      = 'test_preguntas';
+    protected $table      = 'detalle_test';
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['pregunta', 'id_area','id_tipo'];
+    protected $allowedFields = ['id_test','id_pregunta', 'nombre','respuesta'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';
@@ -19,4 +19,5 @@ class TestPreguntasModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
 }

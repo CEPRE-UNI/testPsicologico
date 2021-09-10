@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\TestPreguntasModel;
+use App\Models\PreguntasModel;
 use App\Models\AreasModel;
 use App\Models\TiposModel;
 
@@ -14,7 +14,7 @@ class Qhatuni extends BaseController
 
 	public function __construct()
 	{
-		$this->testPreguntas = new TestPreguntasModel;
+		$this->testPreguntas = new PreguntasModel;
 		$this->session=session();
 		$this->areas=new AreasModel();
 		$this->tipos=new TiposModel();

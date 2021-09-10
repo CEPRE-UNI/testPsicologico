@@ -2,7 +2,7 @@
 
 use CodeIgniter\Model;
 
-class DetalleTestModel extends Model
+class testModel extends Model
 {
     protected $table      = 'test';
     protected $primaryKey = 'id';

@@ -71,7 +71,7 @@ $idTestTmp = uniqid();
                                                                 <td><?php echo $pregunta['pregunta']; ?> </td>
                                                                 <td>
                                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                                        <input type="radio" id="<?php echo $n . $area['id'] . $tipo['id']; ?>" name="<?php echo $pregunta['id']; ?>" value="1" class="custom-control-input" onclick="agregarPregunta('<?php echo $idTestTmp ?>',<?php echo $pregunta['id'] ?>,1)">
+                                                                        <input type="radio" id="<?php echo $n . $area['id'] . $tipo['id']; ?>" name="<?php echo $pregunta['id']; ?>" value="1" class="custom-control-input" onclick="agregarPregunta('<?php echo $idTestTmp ?>',<?php echo $pregunta['id'] ?>,1)" required>
                                                                         <label class="custom-control-label" for="<?php echo $n . $area['id'] . $tipo['id']; ?>">Si</label>
                                                                     </div>
                                                                     <div class="custom-control custom-radio custom-control-inline">

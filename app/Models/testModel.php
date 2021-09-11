@@ -2,7 +2,7 @@
 
 use CodeIgniter\Model;
 
-class testModel extends Model
+class TestModel extends Model
 {
     protected $table      = 'test';
     protected $primaryKey = 'id';
@@ -10,7 +10,7 @@ class testModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id_alumno','folio', 'nombre','suma_r','suma_i','suma_a','suma_s','suma_e','suma_c'];
+    protected $allowedFields = ['id_alumno','folio','suma_r','suma_i','suma_a','suma_s','suma_e','suma_c','activo'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';
@@ -20,4 +20,17 @@ class testModel extends Model
     protected $validationMessages = [];
     protected $skipValidation     = false;
 
+    public function insertaVenta($id_alumno,$folio){
+        $this->insert([
+            'id_alumno'=>$id_alumno,
+            'folio'=>$folio
+            // 'suma_r'=>$suma_r,
+            // 'suma_i'=>$suma_i,
+            // 'suma_a'=>$suma_a,
+            // 'suma_s'=>$suma_s,
+            // 'suma_e'=>$suma_e,
+            // 'suma_c'=>$suma_c
+        ]);
+        return $this->insertID();
+    }
 }

@@ -25,7 +25,6 @@ class TemporalPreguntas extends BaseController
 		$datosT=$this->temporal->buscarFolioPregunta($folio, $id_pregunta);
 
 		if ($datos) {
-			
 			if ($datosT) {
 				$this->temporal->actualizar($folio,$id_pregunta,$respuesta);
 			} else {

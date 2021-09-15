@@ -6,11 +6,12 @@ use App\Controllers\BaseController;
 use App\Models\PreguntasModel;
 use App\Models\AreasModel;
 use App\Models\TiposModel;
+use App\Models\TestNewModel;
 
 class Qhatuni extends BaseController
 {
 
-	protected $alumnos, $reglasLogin,$session,$testPreguntas,$areas;
+	protected $alumnos, $reglasLogin,$session,$testPreguntas,$areas,$test;
 
 	public function __construct()
 	{
@@ -18,6 +19,7 @@ class Qhatuni extends BaseController
 		$this->session=session();
 		$this->areas=new AreasModel();
 		$this->tipos=new TiposModel();
+		$this->test=new TestNewModel;
 		helper(['form']);
 
 		$this->reglasLogin = [
@@ -62,18 +64,29 @@ class Qhatuni extends BaseController
 			]
 		];
 	}
+	
 	public function index(){
+
 		if (!isset($this->session->dni)){
 			return redirect()->to(base_url());
 		}
 		$testPreguntas=$this->testPreguntas->findAll();
 		$areas=$this->areas->findAll();
 		$tipos=$this->tipos->findAll();
+		$test=$this->test->where('id_alumno', $this->session->id_alumno)->first();
+		// $test=$this->test->findAll();
+		$testTrue=false;
+		// foreach($test as $row){
+			if ($this->session->id_alumno==$test['id_alumno']){
+				$testTrue=true;
+			}
+		// }
 		$data=[
 			'titulo'=>'cajas',
 			'preguntas'=>$testPreguntas,
 			'tipos'=>$tipos,
-			'areas'=>$areas
+			'areas'=>$areas,
+			'test'=>$testTrue
 
 		];
 		echo view('header');

@@ -20,16 +20,16 @@ class TestModel extends Model
     protected $validationMessages = [];
     protected $skipValidation     = false;
 
-    public function insertaVenta($id_alumno,$folio){
+    public function inserta($id_alumno,$folio,$suma_r,$suma_i,$suma_a,$suma_s,$suma_e,$suma_c){
         $this->insert([
             'id_alumno'=>$id_alumno,
-            'folio'=>$folio
-            // 'suma_r'=>$suma_r,
-            // 'suma_i'=>$suma_i,
-            // 'suma_a'=>$suma_a,
-            // 'suma_s'=>$suma_s,
-            // 'suma_e'=>$suma_e,
-            // 'suma_c'=>$suma_c
+            'folio'=>$folio,
+            'suma_r'=>$suma_r,
+            'suma_i'=>$suma_i,
+            'suma_a'=>$suma_a,
+            'suma_s'=>$suma_s,
+            'suma_e'=>$suma_e,
+            'suma_c'=>$suma_c
         ]);
         return $this->insertID();
     }

@@ -19,4 +19,11 @@ class AreasModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    public function buscar($id_area){
+        $this->select('*');
+        $this->where('id',$id_area);
+        $datos=$this->get()->getRow();
+        return $datos;
+    }
 }

@@ -10,7 +10,7 @@ class DetalleTestModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id_test','id_pregunta', 'nombre','respuesta'];
+    protected $allowedFields = ['folio','id_pregunta', 'respuesta'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';

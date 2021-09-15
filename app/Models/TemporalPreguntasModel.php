@@ -43,4 +43,11 @@ class TemporalPreguntasModel extends Model
         $datos=$this->get()->getRow();
         return $datos;
     }
+    public function buscarFolios($folio){
+        $this->select('*');
+        $this->where('folio',$folio);
+        $datos=$this->findAll();
+        return $datos;
+    }
+   
 }

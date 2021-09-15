@@ -11,16 +11,24 @@ $idTestTmp = uniqid();
 
         <!-- Header -->
         <!-- Header -->
-        <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+        <div class="header pb-6 d-flex d-flex  justify-content-center " style="min-height: 500px; background-image: url(<?php echo base_url(); ?>/assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
             <!-- Mask -->
             <span class="mask bg-gradient-default opacity-8"></span>
             <!-- Header container -->
-            <div class="container-fluid d-flex align-items-center">
+            <div class="container-fluid d-flex justify-content-center text-center">
                 <div class="row">
-                    <div class="col-lg-7 col-md-10">
-                        <h1 class="display-2 text-white">Hello Jesse</h1>
-                        <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-                        <a href="<?php echo base_url() . '/alumnos/logout'; ?>" class="btn btn-neutral">Edit profile</a>
+                    <div class="col-xl-12 col-md-12">
+                        <div class="logo ">
+                            <a href="<?php echo base_url(); ?>"> <img src="<?php echo base_url(); ?>/assets/img/logo.png" alt="CEPRE-UNI"></a>
+                        </div>
+                        <h1 class="display-2 text-white">Hello <?php echo $alumno_session->nombres; ?></h1>
+                        <h2 class="display-4 text-white">Instrucciones</h2>
+                        <p class="text-white mt-0 mb-5">marca con un SI o NO, según se menciona en cada caso:</p>
+
+                        <?php if ($test == true) { ?>
+                            <a href="<?php echo base_url() . '/alumno'; ?>" class="btn btn-sm btn-info  mr-4 "><i class="fas fa-eye"></i> verfil</a>
+
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -38,7 +46,8 @@ $idTestTmp = uniqid();
                             </div>
                         </div>
                         <div class="card-body">
-                            <form role="form" method="post" action="<?php echo base_url() . '/alumnos/valida'; ?>">
+                            <form role="form" method="post" action="<?php echo base_url() . '/testNew/guarda'; ?>">
+                                <input type="hidden" id="folio" name="folio" value="<?php echo $idTestTmp ?>">
                                 <!-- <h6 class="heading-small text-muted mb-4">User information</h6> -->
                                 <div class="pl-lg-4">
                                     <?php
@@ -71,11 +80,11 @@ $idTestTmp = uniqid();
                                                                 <td><?php echo $pregunta['pregunta']; ?> </td>
                                                                 <td>
                                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                                        <input type="radio" id="<?php echo $n . $area['id'] . $tipo['id']; ?>" name="<?php echo $pregunta['id']; ?>" value="1" class="custom-control-input" onclick="agregarPregunta('<?php echo $idTestTmp ?>',<?php echo $pregunta['id'] ?>,1)" required>
+                                                                        <input type="radio" id="<?php echo $n . $area['id'] . $tipo['id']; ?>" name="<?php echo $pregunta['id']; ?>" value="1" class="custom-control-input" onclick="agregarPregunta('<?php echo $idTestTmp ?>',<?php echo $pregunta['id'] ?>,1)">
                                                                         <label class="custom-control-label" for="<?php echo $n . $area['id'] . $tipo['id']; ?>">Si</label>
                                                                     </div>
                                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                                        <input type="radio" id="<?php echo 10000 + $n . $area['id'] . $tipo['id']; ?>" name="<?php echo $pregunta['id']; ?>" value="0" class="custom-control-input" onclick="agregarPregunta('<?php echo $idTestTmp ?>',<?php echo $pregunta['id'] ?>,0)">
+                                                                        <input required type="radio" id="<?php echo 10000 + $n . $area['id'] . $tipo['id']; ?>" name="<?php echo $pregunta['id']; ?>" value="0" class="custom-control-input" onclick="agregarPregunta('<?php echo $idTestTmp ?>',<?php echo $pregunta['id'] ?>,0)">
                                                                         <label class="custom-control-label" for="<?php echo 10000 + $n . $area['id'] . $tipo['id']; ?>">No</label>
                                                                     </div>
                                                                 </td>
@@ -115,12 +124,12 @@ $idTestTmp = uniqid();
             <script src="<?php echo base_url(); ?>/assets/js/jquery-ui.min.js" crossorigin="anonymous"></script>
             <script>
                 function agregarPregunta(folio, id_pregunta, respuesta) {
-                   
-                                $.ajax({
-                                    url: '<?php echo base_url(); ?>/temporalPreguntas/cargarPregunta/' + folio + "/" + id_pregunta + "/" + respuesta,
-                                    success: function(resultado) {
-                                       
-                                    }
-                                });
+
+                    $.ajax({
+                        url: '<?php echo base_url(); ?>/temporalPreguntas/cargarPregunta/' + folio + "/" + id_pregunta + "/" + respuesta,
+                        success: function(resultado) {
+
+                        }
+                    });
                 }
             </script>

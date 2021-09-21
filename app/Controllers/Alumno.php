@@ -57,6 +57,33 @@ class Alumno extends BaseController
 				'errors' => [
 					'required' => 'El campo {field} es obligatorio.'
 				]
+			],
+			'telefono' => [
+				'rules' => 'required|numeric|exact_length[9]',
+				'errors' => [
+					'required' => 'El campo {field} es obligatorio.',
+					'numeric' => 'El campo {field} debe ser numérico.',
+					'exact_length' => 'El campo {field} debe tener 9 numeros.'
+				]
+			],
+			'email' => [
+				'rules' => 'required|valid_email',
+				'errors' => [
+					'required' => 'El campo {field} es obligatorio.',
+					'valid_email' => 'El campo {field} debe ser email.'
+				]
+			],
+			'carrera1' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => 'El campo {field} es obligatorio.'
+				]
+			],
+			'carrera2' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => 'El campo {field} es obligatorio.'
+				]
 			]
 		];
 	}
@@ -74,6 +101,10 @@ class Alumno extends BaseController
 			$fecha_nac = $this->request->getPost('edad');
 			$sexo = $this->request->getPost('sexo');
 			$grado = $this->request->getPost('grado');
+			$email = $this->request->getPost('email');
+			$telefono = $this->request->getPost('telefono');
+			$carrera1 = $this->request->getPost('carrera1');
+			$carrera2 = $this->request->getPost('carrera2');
 			// $usuario = $this->request->getPost('usuario');
 			// $password = $this->request->getPost('password');
 			// $usuarioData = $this->usuarios->where('usuario', $usuario)->first();
@@ -84,7 +115,12 @@ class Alumno extends BaseController
 					'apellidos' => $apellidos,
 					'fecha_nac' => $fecha_nac,
 					'sexo' => $sexo,
-					'grado' => $grado
+					'grado' => $grado,
+					'email' => $email,
+					'telefono' => $telefono,
+					'carrera1' => $carrera1,
+					'carrera2' => $carrera2
+
 				];
 				$this->alumnos->update(
 					$alumnosData1['id'],
@@ -98,7 +134,11 @@ class Alumno extends BaseController
 					'apellidos' => $alumnosData['apellidos'],
 					'fecha_nac' => $alumnosData['fecha_nac'],
 					'sexo' => $alumnosData['sexo'],
-					'grado' => $alumnosData['grado']
+					'grado' => $alumnosData['grado'],
+					'email' => $alumnosData['email'],
+					'telefono' => $alumnosData['telefono'],
+					'carrera1' => $alumnosData['carrera1'],
+					'carrera2' => $alumnosData['carrera2']
 				];
 				$session = \Config\Services::session();
 				$session->set($sesionDatos);
@@ -110,7 +150,11 @@ class Alumno extends BaseController
 					'apellidos' => $apellidos,
 					'fecha_nac' => $fecha_nac,
 					'sexo' => $sexo,
-					'grado' => $grado
+					'grado' => $grado,
+					'email' => $email,
+					'telefono' => $telefono,
+					'carrera1' => $carrera1,
+					'carrera2' => $carrera2
 				]);
 				$alumnosData = $this->alumnos->where('dni', $dni)->first();
 				$sesionDatos = [
@@ -120,7 +164,11 @@ class Alumno extends BaseController
 					'apellidos' => $alumnosData['apellidos'],
 					'fecha_nac' => $alumnosData['fecha_nac'],
 					'sexo' => $alumnosData['sexo'],
-					'grado' => $alumnosData['grado']
+					'grado' => $alumnosData['grado'],
+					'email' => $alumnosData['email'],
+					'telefono' => $alumnosData['telefono'],
+					'carrera1' => $alumnosData['carrera1'],
+					'carrera2' => $alumnosData['carrera2']
 				];
 				$session = \Config\Services::session();
 				$session->set($sesionDatos);
@@ -150,10 +198,36 @@ class Alumno extends BaseController
 		}
 		$test = $this->test->where('id_alumno', $this->session->id_alumno)->first();
 		if ($this->session->id_alumno == $test['id_alumno']) {
+			$dataNotas = $this->test->obtener($this->session->id_alumno);
 			$dataPerfil = $this->alumnos->where('dni', $this->session->dni)->first();
+			$dataNotasMayores = [];
+			$dataNotasResto = [];
+			$mayor = 0;
+			foreach ($dataNotas as $notas) {
+				// $dataNotasMayores[0] = $notas;
+				if ($notas['suma_nota'] > $mayor) {
+					$mayor = $notas['suma_nota'];
+					$dataNotasMayores[0] = $notas;
+				} else {
+					array_push($dataNotasResto, $notas);
+				}
+			}
+			// array_push($dataNotasMayores,$notas);
+			$mayor1 = 0;
+			foreach ($dataNotas as $nota) {
+				// $dataNotasMayores[1] = $nota;
+				if ($nota['suma_nota'] > $mayor1 && $nota['id_area']!=$dataNotasMayores[0]['id_area']) {
+					$mayor1 = $nota['suma_nota'];
+					$dataNotasMayores[1] = $nota;
+				}
+			}
+			// array_push($dataNotasMayores,$notas);
+
 			$data = [
 				'titulo' => 'cajas',
-				'dataPerfil' => $dataPerfil
+				'dataPerfil' => $dataPerfil,
+				'dataNotas' => $dataNotasMayores
+
 			];
 			echo view('header');
 			echo view('Qhatuni/perfil', $data);

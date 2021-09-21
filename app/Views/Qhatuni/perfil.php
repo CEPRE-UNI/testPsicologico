@@ -28,8 +28,12 @@ $alumno_session = session();
               <div class="row justify-content-center">
                 <div class="col-lg-3 order-lg-2">
                   <div class="card-profile-image">
-                    <a href="#">
-                      <img src="<?php echo base_url(); ?>/assets/img/theme/team-4.jpg" class="rounded-circle">
+                    <a >
+                      <?php if ($alumno_session->sexo == "Femenino") { ?>
+                        <img src="<?php echo base_url(); ?>/assets/img/theme/team-4.jpg" class="rounded-circle">
+                      <?php } else { ?>
+                        <img src="<?php echo base_url(); ?>/assets/img/theme/team-5.jpg" class="rounded-circle">
+                      <?php } ?>
                     </a>
                   </div>
                 </div>
@@ -37,42 +41,44 @@ $alumno_session = session();
               <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                 <div class="d-flex justify-content-between">
                   <a href="<?php echo base_url() . '/qhatuni'; ?>" class="btn btn-sm btn-info  mr-4 ">Volver a tomar Test</a>
-                  <a href="<?php echo base_url().'/alumno/logout';?>" class="btn btn-sm btn-default float-right">Salir</a>
+                  <a href="<?php echo base_url() . '/alumno/logout'; ?>" class="btn btn-sm btn-default float-right">Salir</a>
                 </div>
               </div>
               <div class="card-body pt-0">
                 <div class="row">
                   <div class="col">
                     <div class="card-profile-stats d-flex justify-content-center">
-                      <div>
-                        <span class="heading">22</span>
-                        <span class="description">Friends</span>
-                      </div>
-                      <div>
-                        <span class="heading">10</span>
-                        <span class="description">Photos</span>
-                      </div>
-                      <div>
-                        <span class="heading">89</span>
-                        <span class="description">Comments</span>
-                      </div>
+                      <!-- <span class="heading">22</span>
+                      <span class="description">Friends</span>
+                    </div>
+                    <div>
+                      <span class="heading">10</span>
+                      <span class="description">Photos</span>
+                    </div>
+                    <div> -->
+                      <?php foreach ($dataNotas as $nota) { ?>
+                        <div>
+                          <span class="heading"><?php echo $nota['suma_nota'] ?></span>
+                          <span class="description"><?php echo $nota['nombre'] ?></span>
+                        </div>
+                      <?php } ?>
                     </div>
                   </div>
                 </div>
                 <div class="text-center">
-                  <h5 class="h3">
-                    <?php echo $alumno_session->nombres." ".$alumno_session->apellidos ; ?><span class="font-weight-light">,  
-                       <?php 
-                       $nacimiento = new DateTime($alumno_session->fecha_nac);
-                       $ahora = new DateTime(date("Y-m-d"));
-                       $diferencia = $ahora->diff($nacimiento);
-                       echo $diferencia->format("%y");?></span>
+                  <h5 class="h3"> <i class="fas fa-user"></i>
+                    <?php echo $alumno_session->nombres . " " . $alumno_session->apellidos; ?><span class="font-weight-light">,
+                      <?php
+                      $nacimiento = new DateTime($alumno_session->fecha_nac);
+                      $ahora = new DateTime(date("Y-m-d"));
+                      $diferencia = $ahora->diff($nacimiento);
+                      echo $diferencia->format("%y"); ?></span>
                   </h5>
                   <div class="h5 font-weight-300">
-                    <i class="ni location_pin mr-2"></i>Bucharest, Romania
+                  <i class="ni location_pin mr-2"></i> <i class="fas fa-envelope"></i><?php echo " ".$alumno_session->email;?>
                   </div>
                   <div class="h5 mt-4">
-                    <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+                    <i class="ni business_briefcase-24 mr-2"></i><i class="fas fa-briefcase"></i><?php echo  " Carreras que me gustan: ".$alumno_session->carrera1." - ".$alumno_session->carrera2;?>
                   </div>
                   <div>
                     <i class="ni education_hat mr-2"></i>University of Computer Science

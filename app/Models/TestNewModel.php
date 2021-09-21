@@ -41,5 +41,14 @@ class TestNewModel  extends Model
         $this->where('id_alumno',$id_alumno);
         $datos=$this->findAll();
         return $datos;
+    }public function obtener($id_alumno, $activo=1){
+        $this->select('test_new.*,a.nombre_corto AS nombre_corto, a.nombre AS nombre');
+        $this->join('area AS a', 'test_new.id_area=a.id');
+        // $this->join('tipo AS t', 'preguntas.id_tipo=t.id');
+        $this->where('test_new.id_alumno', $id_alumno);
+        $this->where('test_new.activo', $activo);
+        // $this->orderBy('ventas.fecha_alta', 'DESC');
+        $datos=$this->findAll();
+        return $datos;
     }
 }

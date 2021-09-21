@@ -10,7 +10,7 @@ class AlumnosModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['dni', 'nombres','apellidos','fecha_nac','sexo','grado'];
+    protected $allowedFields = ['dni', 'nombres','apellidos','fecha_nac','sexo','grado','telefono','email','carrera1','carrera2'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';

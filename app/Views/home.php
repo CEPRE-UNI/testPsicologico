@@ -100,34 +100,66 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form" method="post" action="<?php echo base_url().'/alumno/valida'; ?>">
+              <form role="form" method="post" action="<?php echo base_url() . '/alumno/valida'; ?>">
                 <!-- <h6 class="heading-small text-muted mb-4">User information</h6> -->
+                <p> En el campo DNI, si cuenta con otro documento solo utilice los 8 primeros digitos.</p>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="dni">DNI</label>
-                        <input type="text" id="dni" name="dni" class="form-control" placeholder="DNI" maxlength="8" required autofocus > 
+                        <input type="text" id="dni" name="dni" class="form-control" placeholder="DNI" maxlength="8" required autofocus>
                       </div>
                     </div>
                     <div class="col-lg-8">
                       <div class="form-group">
-                        <label class="form-control-label" for="nombre">Nombres</label>
-                        <input type="text" id="nombres" name="nombres" class="form-control" placeholder="Nombre" required>
-                      </div>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                        <label class="form-control-label" for="apellido">Apellidos</label>
-                        <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Apellidos" required>
+                        <label class="form-control-label" for="nombres">nombres</label>
+                        <input type="text" id="nombres" name="nombres" class="form-control" placeholder="nombre" required>
                       </div>
                     </div>
                   </div>
                   <div class="row">
+                    <div class="col-lg-8">
+                      <div class="form-group">
+                        <label class="form-control-label" for="apellidos">apellido</label>
+                        <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="apellidos" required>
+                      </div>
+                    </div>
                     <div class="col-sm-4">
                       <div class="form-group">
+                        <label class="form-control-label" for="telefono">celular</label>
+                        <input class="form-control" type="text" placeholder="celular" id="telefono" name="telefono" maxlength="9">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="email">email</label>
+                        <input type="" id="email" name="email" class="form-control" placeholder="email" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="carrera1">Escribe 2 carreras que te gustaría</label>
+                        <input type="text" id="carrera1" name="carrera1" class="form-control" placeholder="1ra carrera" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <input type="text" id="carrera2" name="carrera2" class="form-control" placeholder="2da carrera" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <div class="form-group">
                         <label class="form-control-label" for="edad">Fecha de nacimiento</label>
-                        <input class="form-control" type="date" value="2000-06-24"  id="edad" name="edad">
+                        <input class="form-control" type="date" value="2000-06-24" id="edad" name="edad">
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -139,10 +171,14 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                       <div class="form-group">
                         <label class="form-control-label" for="grado">Grado</label>
-                        <input type="text" id="grado" name="grado" class="form-control" placeholder="grado" required>
+                        <select type="text" id="grado" name="grado" class="form-control" placeholder="Username" required>
+                          <option>4to</option>
+                          <option>5to</option>
+                          <option>Superior</option>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -154,15 +190,15 @@
                     </div>
                   </div>
                   <?php if (isset($validation)) { ?>
-                <div class="alert alert-danger">
-                    <?php echo $validation->listErrors(); ?>
-                </div>
-            <?php } ?>
-            <?php if (isset($error)) { ?>
-                <div class="alert alert-danger">
-                    <?php echo $error; ?>
-                </div>
-            <?php } ?>
+                    <div class="alert alert-danger">
+                      <?php echo $validation->listErrors(); ?>
+                    </div>
+                  <?php } ?>
+                  <?php if (isset($error)) { ?>
+                    <div class="alert alert-danger">
+                      <?php echo $error; ?>
+                    </div>
+                  <?php } ?>
                 </div>
               </form>
             </div>

@@ -29,7 +29,7 @@ $idTestTmp = uniqid();
                             <a href="<?php echo base_url() . '/alumno'; ?>" class="btn btn-sm btn-info  mr-4 "><i class="fas fa-eye"></i> verfil</a>
 
                         <?php } else { ?>
-                            <a href="<?php echo base_url().'/alumno/logout';?>" class="btn btn-sm btn-danger">Salir</a>
+                            <a href="<?php echo base_url() . '/alumno/logout'; ?>" class="btn btn-sm btn-danger">Salir</a>
                         <?php } ?>
                     </div>
                 </div>

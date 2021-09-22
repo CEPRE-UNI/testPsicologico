@@ -28,7 +28,7 @@ $alumno_session = session();
               <div class="row justify-content-center">
                 <div class="col-lg-3 order-lg-2">
                   <div class="card-profile-image">
-                    <a >
+                    <a>
                       <?php if ($alumno_session->sexo == "Femenino") { ?>
                         <img src="<?php echo base_url(); ?>/assets/img/theme/team-4.jpg" class="rounded-circle">
                       <?php } else { ?>
@@ -75,14 +75,37 @@ $alumno_session = session();
                       echo $diferencia->format("%y"); ?></span>
                   </h5>
                   <div class="h5 font-weight-300">
-                  <i class="ni location_pin mr-2"></i> <i class="fas fa-envelope"></i><?php echo " ".$alumno_session->email;?>
+                    <i class="ni location_pin mr-2"></i> <i class="fas fa-envelope"></i><?php echo " " . $alumno_session->email; ?>
                   </div>
                   <div class="h5 mt-4">
-                    <i class="ni business_briefcase-24 mr-2"></i><i class="fas fa-briefcase"></i><?php echo  " Carreras que me gustan: ".$alumno_session->carrera1." - ".$alumno_session->carrera2;?>
+                    <i class="ni business_briefcase-24 mr-2"></i><i class="fas fa-briefcase"></i><?php echo  " Carreras que me gustan: " . $alumno_session->carrera1 . " - " . $alumno_session->carrera2; ?>
                   </div>
-                  <div>
-                    <i class="ni education_hat mr-2"></i>University of Computer Science
-                  </div>
+
+                </div>
+                <div class="pl-lg-12">
+                  <table class="table table-sm table-borderless table-responsive-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"> Carrera </th>
+                        <th scope="col">Nivel</th>
+                        <th scope="col">Areas</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <?php $n = 1;
+                      foreach ($dataClaves as $clave) { ?>
+                        <tr>
+                          <th scope="row"> <?php echo $n;
+                                            $n++; ?> </th>
+                          <th scope="row"> <?php echo $clave['carrera']; ?> </th>
+                          <th scope="row"> <?php echo $clave['nombre_grado']; ?> </th>
+                          <th scope="row"> <?php echo $clave['nombre_area1'] . "-" . $clave['nombre_area2']; ?> </th>
+                        </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>

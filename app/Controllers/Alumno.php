@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\AlumnosModel;
 use App\Models\TestNewModel;
+use App\Models\ClavesModel;
+
 
 class Alumno extends BaseController
 {
@@ -16,6 +18,8 @@ class Alumno extends BaseController
 		$this->alumnos = new AlumnosModel;
 		$this->test = new TestNewModel();
 		$this->session = session();
+		$this->claves = new ClavesModel();
+
 		helper(['form']);
 
 		$this->reglasLogin = [
@@ -222,10 +226,11 @@ class Alumno extends BaseController
 				}
 			}
 			// array_push($dataNotasMayores,$notas);
-
+			$dataClaves=$this->claves->obtener($dataNotasMayores[0]['id_area'],$dataNotasMayores[1]['id_area']);
 			$data = [
 				'titulo' => 'cajas',
 				'dataPerfil' => $dataPerfil,
+				'dataClaves' => $dataClaves,
 				'dataNotas' => $dataNotasMayores
 
 			];

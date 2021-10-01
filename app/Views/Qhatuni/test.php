@@ -25,7 +25,7 @@ $idTestTmp = uniqid();
                         <h2 class="display-4 text-white">Instrucciones</h2>
                         <p class="text-white mt-0 mb-5">marca con un SI o NO, según se menciona en cada caso:</p>
 
-                        <?php if ($test == true) { ?>
+                        <?php if ($test) { ?>
                             <a href="<?php echo base_url() . '/alumno'; ?>" class="btn btn-sm btn-info  mr-4 "><i class="fas fa-eye"></i> verfil</a>
 
                         <?php } else { ?>

@@ -183,9 +183,12 @@ class Alumno extends BaseController
 			$data = [
 				'validation' => $this->validator
 			];
+			$footer=[
+				'docente'=>false
+			];
 			echo view('header');
 			echo view('home', $data);
-			echo view('footer');
+			echo view('footer',$footer);
 		}
 	}
 
@@ -201,7 +204,7 @@ class Alumno extends BaseController
 			return redirect()->to(base_url());
 		}
 		$test = $this->test->where('id_alumno', $this->session->id_alumno)->first();
-		if ($this->session->id_alumno == $test['id_alumno']) {
+		if ($test) {
 			$dataNotas = $this->test->obtener($this->session->id_alumno);
 			$dataPerfil = $this->alumnos->where('dni', $this->session->dni)->first();
 			$dataNotasMayores = [];
@@ -234,9 +237,12 @@ class Alumno extends BaseController
 				'dataNotas' => $dataNotasMayores
 
 			];
+			$footer=[
+				'docente'=>false
+			];
 			echo view('header');
 			echo view('Qhatuni/perfil', $data);
-			echo view('footer');
+			echo view('footer',$footer);
 		} else {
 			return redirect()->to(base_url() . "/qhatuni");
 		}

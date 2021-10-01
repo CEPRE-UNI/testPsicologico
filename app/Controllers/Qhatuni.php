@@ -77,7 +77,7 @@ class Qhatuni extends BaseController
 		// $test=$this->test->findAll();
 		$testTrue=false;
 		// foreach($test as $row){
-			if ($this->session->id_alumno==$test['id_alumno']){
+			if ($test){
 				$testTrue=true;
 			}
 		// }
@@ -89,9 +89,12 @@ class Qhatuni extends BaseController
 			'test'=>$testTrue
 
 		];
+		$footer=[
+            'docente'=>false
+        ];
 		echo view('header');
 		echo view('Qhatuni/test', $data);
-		echo view('footer');
+		echo view('footer',$footer);
 	}
 	
 	//--------------------------------------------------------------------

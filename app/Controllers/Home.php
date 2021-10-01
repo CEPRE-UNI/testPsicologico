@@ -16,8 +16,11 @@ class Home extends BaseController
 		if (isset($this->session->dni)){
 			return redirect()->to(base_url()."/alumno/");
 		}
+		$footer=[
+            'docente'=>true
+        ];
 		echo view('header');
 		echo view('home');
-		echo view('footer');
+		echo view('footer',$footer);
 	}
 }

@@ -19,4 +19,8 @@ class DocentesModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+    public function contDocentes(){
+       
+        return $this->countAll();
+    }
 }

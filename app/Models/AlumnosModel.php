@@ -19,4 +19,14 @@ class AlumnosModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    public function getAlumnos(){
+        $this->select("*");
+        $datos=$this->findAll();
+        return $datos;
+    }
+    public function contAlumnos(){
+       
+        return $this->countAll();
+    }
 }

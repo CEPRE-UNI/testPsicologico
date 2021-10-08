@@ -89,12 +89,13 @@ class Qhatuni extends BaseController
 			'test'=>$testTrue
 
 		];
-		$footer=[
-            'docente'=>false
-        ];
-		echo view('header');
+		$shered=[
+			'footer'=>false,
+			'header'=>true
+		];
+		echo view('header',$shered);
 		echo view('Qhatuni/test', $data);
-		echo view('footer',$footer);
+		echo view('footer',$shered);
 	}
 	
 	//--------------------------------------------------------------------

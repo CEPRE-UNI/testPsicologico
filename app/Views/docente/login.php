@@ -111,7 +111,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-qrcode"></i></span>
                     </div>
-                    <input class="form-control" id="codigo" name="codigo" placeholder="codigo" type="text" required>
+                    <input class="form-control" id="codigo" name="codigo" placeholder="codigo" type="password" required>
                   </div>
                 </div>
                 <div class="text-center">

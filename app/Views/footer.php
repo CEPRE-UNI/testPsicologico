@@ -3,7 +3,7 @@ $Date = date("d-m-Y");
 $Year2 = date("Y");
 
 ?>
-<?php if ($docente) { ?>
+<?php if ($footer) { ?>
   </div>
   </div>
   <footer class="py-5" id="footer-main">
@@ -20,7 +20,7 @@ $Year2 = date("Y");
               <a href="<?php echo base_url() . '/docente'; ?>" class="nav-link">Docente</a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url() . '/docente'; ?>" class="nav-link" target="_blank">Test</a>
+              <a href="<?php echo base_url() . '/'; ?>" class="nav-link" >Test</a>
             </li>
             <li class="nav-item">
               <a href="https://cepreuni.net.pe/" class="nav-link" target="_blank">CEPRE-UNI</a>
@@ -47,7 +47,7 @@ $Year2 = date("Y");
             <a href="<?php echo base_url() . '/docente'; ?>" class="nav-link">Docente</a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url() . '/docente'; ?>" class="nav-link" target="_blank">Test</a>
+            <a href="<?php echo base_url() . '/'; ?>" class="nav-link" >Test</a>
           </li>
           <li class="nav-item">
             <a href="https://cepreuni.net.pe/" class="nav-link" target="_blank">CEPRE-UNI</a>

@@ -183,12 +183,13 @@ class Alumno extends BaseController
 			$data = [
 				'validation' => $this->validator
 			];
-			$footer=[
-				'docente'=>false
+			$shered=[
+				'footer'=>false,
+				'header'=>true
 			];
-			echo view('header');
+			echo view('header',$shered);
 			echo view('home', $data);
-			echo view('footer',$footer);
+			echo view('footer',$shered);
 		}
 	}
 
@@ -237,12 +238,13 @@ class Alumno extends BaseController
 				'dataNotas' => $dataNotasMayores
 
 			];
-			$footer=[
-				'docente'=>false
+			$shered=[
+				'footer'=>false,
+				'header'=>true
 			];
-			echo view('header');
+			echo view('header',$shered);
 			echo view('Qhatuni/perfil', $data);
-			echo view('footer',$footer);
+			echo view('footer',$shered);
 		} else {
 			return redirect()->to(base_url() . "/qhatuni");
 		}

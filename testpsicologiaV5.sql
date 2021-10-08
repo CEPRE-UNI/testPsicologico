@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-09-2021 a las 20:05:51
+-- Tiempo de generación: 08-10-2021 a las 10:31:12
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 7.3.29
 
@@ -48,13 +48,16 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`id`, `dni`, `nombres`, `apellidos`, `fecha_nac`, `sexo`, `grado`, `fecha_alta`, `fecha_edit`, `telefono`, `email`, `carrera1`, `carrera2`) VALUES
-(1, '70469002', 'Jose', 'Pintado', '1992-06-24', 'Masculino', 'Super', '2021-09-15 04:13:57', '2021-09-18 16:50:28', '888888888', 'jose@gmail.com', 'Sistemas', 'Industrial'),
-(2, '78787878', 'Jose ', 'Huaman', '2000-06-24', '0', '0', '2021-09-15 06:39:15', '2021-09-15 18:06:04', '', '', '', ''),
+(1, '70469002', 'Jose', 'Pintado', '2000-06-24', 'Masculino', '4to', '2021-09-15 04:13:57', '2021-10-08 06:11:13', '333333333', 'josepintado24@gmail.com', 'dddd', 'dddd'),
+(2, '78787878', 'ffffffff', 'ffffffff', '2000-06-24', 'Masculino', '4to', '2021-09-15 06:39:15', '2021-09-22 04:56:38', '333333333', '33333@gmail.com', 'wwwwwwww', 'wwwwww'),
 (3, '70469003', 'M;anuel', 'Pintado', '2000-06-24', '0', '0', '2021-09-15 16:05:12', '2021-09-15 16:05:12', '', '', '', ''),
 (4, '33333333', '3333333', '333', '2000-06-24', '0', '4to', '2021-09-16 00:14:35', '2021-09-16 00:15:12', '', '', '', ''),
 (5, '44444444', '4444', '444', '2000-06-24', '0', '4to', '2021-09-16 00:36:59', '2021-09-16 00:36:59', '444444444', '', '', ''),
-(6, '70469888', 'dddddd', 'dddddd', '2000-06-24', 'Femenino', '5to', '2021-09-17 02:19:01', '2021-09-18 18:53:58', '777777777', 'dddd@gmail.com', 'dddddd', 'dddddd'),
-(7, '00000000', 'dddddd', 'ddddddd', '2000-06-24', '0', '4to', '2021-09-17 02:40:53', '2021-09-17 02:40:53', '999999999', 'ddddd@gmail.com', 'dddddd', 'ddddddd');
+(6, '70469888', 'ddddd', 'ddddddd', '2000-06-24', 'Masculino', '4to', '2021-09-17 02:19:01', '2021-09-22 04:55:51', '333333333', 'dddddddd@gmail.com', 'ddddddd', 'ddddd'),
+(7, '00000000', 'dddddd', 'ddddddd', '2000-06-24', '0', '4to', '2021-09-17 02:40:53', '2021-09-17 02:40:53', '999999999', 'ddddd@gmail.com', 'dddddd', 'ddddddd'),
+(8, '12345678', 'Juan', 'Pintado', '2000-06-24', 'Masculino', '4to', '2021-09-22 15:02:14', '2021-09-22 15:02:14', '999999999', 'juan@gmail.com', 'ADMINISTRACION', 'MUSICA'),
+(9, '23232323', 'ddddddd', 'ddddddddd', '2000-06-24', 'Masculino', '4to', '2021-09-22 15:29:08', '2021-09-22 15:29:08', '333333333', 'dddddddddddd@gmail.c', 'ssss', 'ssss'),
+(10, '32366848', 'Efra', 'Hurtado', '2000-06-24', 'Masculino', 'Super', '2021-09-29 22:19:33', '2021-09-29 22:19:33', '999999999', 'efra@gmail.com', 'Ciencias', 'Economia');
 
 -- --------------------------------------------------------
 
@@ -73,7 +76,7 @@ CREATE TABLE `area` (
 --
 
 INSERT INTO `area` (`id`, `nombre`, `nombre_corto`) VALUES
-(1, 'Realsita', 'R'),
+(1, 'Realista', 'R'),
 (2, 'Investigador', 'I'),
 (3, 'Artístico', 'A'),
 (4, 'Social', 'S'),
@@ -1026,6 +1029,28 @@ INSERT INTO `detalle_test` (`id`, `folio`, `id_pregunta`, `respuesta`, `fecha_al
 (658, '', 195, 0, '2021-09-17 02:26:20', '2021-09-17 02:26:20'),
 (659, '', 196, 0, '2021-09-17 02:26:20', '2021-09-17 02:26:20'),
 (660, '', 197, 0, '2021-09-17 02:26:20', '2021-09-17 02:26:20');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `docente`
+--
+
+CREATE TABLE `docente` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `apellido` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `codigo` int(4) NOT NULL,
+  `fecha_alta` timestamp NOT NULL DEFAULT current_timestamp(),
+  `fecha_edit` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `docente`
+--
+
+INSERT INTO `docente` (`id`, `nombre`, `apellido`, `codigo`, `fecha_alta`, `fecha_edit`) VALUES
+(1, 'Jose', 'Pintado', 1992, '2021-09-29 21:32:41', '2021-09-29 21:32:41');
 
 -- --------------------------------------------------------
 
@@ -2054,7 +2079,7 @@ INSERT INTO `test_new` (`id`, `id_alumno`, `folio`, `suma_nota`, `id_area`, `act
 (23, 1, '6141b088351a6', 13, 3, 1, '2021-09-15 08:39:09', '2021-09-15 08:39:09'),
 (24, 1, '6141b088351a6', 17, 4, 1, '2021-09-15 08:39:09', '2021-09-15 08:39:09'),
 (25, 1, '6141b088351a6', 17, 5, 1, '2021-09-15 08:39:09', '2021-09-15 08:39:09'),
-(26, 1, '6141b088351a6', 13, 6, 1, '2021-09-15 08:39:09', '2021-09-15 08:39:09'),
+(26, 1, '6141b088351a6', 50, 6, 1, '2021-09-15 08:39:09', '2021-09-15 08:39:09'),
 (27, 6, '6143fb15403f8', 6, 1, 1, '2021-09-17 02:26:19', '2021-09-17 02:26:19'),
 (28, 6, '6143fb15403f8', 6, 2, 1, '2021-09-17 02:26:19', '2021-09-17 02:26:19'),
 (29, 6, '6143fb15403f8', 6, 3, 1, '2021-09-17 02:26:19', '2021-09-17 02:26:19'),
@@ -2116,6 +2141,12 @@ ALTER TABLE `detalle_test`
   ADD KEY `fk_pregunta` (`id_pregunta`);
 
 --
+-- Indices de la tabla `docente`
+--
+ALTER TABLE `docente`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `grados`
 --
 ALTER TABLE `grados`
@@ -2164,7 +2195,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `area`
@@ -2183,6 +2214,12 @@ ALTER TABLE `claves`
 --
 ALTER TABLE `detalle_test`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=661;
+
+--
+-- AUTO_INCREMENT de la tabla `docente`
+--
+ALTER TABLE `docente`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `grados`

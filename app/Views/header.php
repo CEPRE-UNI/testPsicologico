@@ -9,7 +9,7 @@
     <meta name="author" content="Creative Tim">
     <title>CEPRE-UNI | Test</title>
     <!-- Favicon -->
-    <link rel="icon" href="<?php echo base_url(); ?>/assets/img/brand/favicon.ico" type="image/png">
+    <link rel="icon" href="<?php echo base_url(); ?>/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
@@ -33,7 +33,7 @@
     <meta name="author" content="Creative Tim">
     <title>CEPRE-UNI | Test</title>
     <!-- Favicon -->
-    <link rel="icon" href="<?php echo base_url(); ?>/assets/img/brand/favicon.ico" type="image/png">
+    <link rel="icon" href="<?php echo base_url(); ?>/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
@@ -96,7 +96,7 @@
             <!-- Navigation -->
             <ul class="navbar-nav mb-md-3">
               <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">
+                <a class="nav-link" href="#">
                   <i class="ni ni-spaceship"></i>
                   <span class="nav-link-text">Reportes</span>
                 </a>

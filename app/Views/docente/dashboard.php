@@ -56,7 +56,7 @@
 <div class="container-fluid mt--6">
 
     <div class="row">
-        <div class="col-xl-12">
+        <div class="col-xl-6">
             <div class="card">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
@@ -64,7 +64,7 @@
                             <h3 class="mb-0">Test Tomadas</h3>
                         </div>
                         <div class="col text-right">
-                            <a href="#!" class="btn btn-sm btn-primary">Ver todos</a>
+                            <a href="<?php echo base_url(); ?>/docente/alumnos" class="btn btn-sm btn-primary">Ver todos</a>
                         </div>
                     </div>
                 </div>

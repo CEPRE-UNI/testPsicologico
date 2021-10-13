@@ -52,19 +52,15 @@ $alumno_session = session();
           <div class="row">
             <div class="col">
             <div class="card-profile-stats d-flex justify-content-center">
-                      <!-- <span class="heading">22</span>
-                      <span class="description">Friends</span>
-                    </div>
-                    <div>
-                      <span class="heading">10</span>
-                      <span class="description">Photos</span>
-                    </div>
-                    <div> -->
+                      
                       <?php foreach ($dataNotas as $nota) { ?>
                         <div>
                           <span class="heading"><?php echo $nota['suma_nota'] ?></span>
                           <span class="description"><?php echo $nota['nombre'] ?></span>
+                          <p><?php echo $nota['detalle'] ?></p>
                         </div>
+                        <br>
+                       
                       <?php } ?>
                     </div>
             </div>

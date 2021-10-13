@@ -19,7 +19,7 @@
           </div>
           <div class="col-lg-12 col-md-10">
             <h1 class="display-2 text-white">Instrucciones</h1>
-            <p class="text-white mt-0 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium aliquid asperiores maiores obcaecati provident reiciendis quibusdam dicta maxime, cum quod sapiente temporibus enim voluptate, nemo quasi in a quos ducimus.</p>
+            <p class="text-white mt-0 mb-5">ESTIMADO ESTUDIANTE, DEBERÁS LEER DETENIDAMENTE LAS FRASES Y PASAR A DESARROLLAR EL CUESTIONARIO, SIN DEMORAR MUCHO EN CADA ITEMS, RESPONDIENDOLOS CON TOTAL SINCERIDAD. ASI TUS RESULTADOS TENDRAN ADECUADA VALIDEZ.</p>
             <!-- <a href="#!" class="btn btn-neutral">Edit profile</a> -->
           </div>
         </div>

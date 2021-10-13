@@ -10,7 +10,7 @@ class AreasModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nombre', 'nombre_corto'];
+    protected $allowedFields = ['nombre', 'nombre_corto','detalle'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';

@@ -43,7 +43,7 @@ class TestNewModel  extends Model
         return $datos;
     }
     public function obtener($id_alumno, $activo=1){
-        $this->select('test_new.*,a.nombre_corto AS nombre_corto, a.nombre AS nombre');
+        $this->select('test_new.*,a.nombre_corto AS nombre_corto, a.nombre AS nombre, a.detalle AS detalle');
         $this->join('area AS a', 'test_new.id_area=a.id');
         // $this->join('tipo AS t', 'preguntas.id_tipo=t.id');
         $this->where('test_new.id_alumno', $id_alumno);
